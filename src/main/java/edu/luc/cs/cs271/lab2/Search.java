@@ -70,7 +70,10 @@ public class Search {
     // Return current item only if it meets the condition!
     while(low <= high) {
       final int mid = (high + low) / 2;
-      if(arr[mid].getFunding() > minFunding) {
+      if(arr[mid].getFunding() == minFunding) {
+        return Optional.of(mid);
+      }
+      else if(arr[mid].getFunding() > minFunding) {
         high = mid - 1;
       }
       else {

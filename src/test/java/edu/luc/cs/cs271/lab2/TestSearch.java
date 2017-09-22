@@ -2,6 +2,7 @@ package edu.luc.cs.cs271.lab2;
 
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.*;
 
 public class TestSearch {
   
@@ -14,7 +15,15 @@ public class TestSearch {
     return array;
   }
 
-  // TODO makeListFixture
+  // DONE makeListFixture
+  List<Team> makeListFixture(final int size) {
+    List<Team> list = new ArrayList<Team>();
+    for(int i = 0; i < size; i++) {
+      final String s = Integer.toString(i);
+      list.add(new Team("Team " + s, "Coach " + s, i * 100 + 50));
+    }
+    return list;
+  }
 
   @Test
   public void testFindPositionArray0() {
