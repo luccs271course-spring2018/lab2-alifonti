@@ -63,12 +63,20 @@ public class Search {
     // TODO complete this method
     // Gets the array size
     final int size = arr.length;
-    // Initially search the entire array
     int low = 0;
     int high = size - 1;
     // Keep going as long as there is more than one item to be checked
     // Eliminate the wrong half of the array
     // Return current item only if it meets the condition!
+    while(low <= high) {
+      final int mid = (high + low) / 2;
+      if(arr[mid].getFunding() > minFunding) {
+        high = mid - 1;
+      }
+      else {
+        low = mid;
+      }
+    }
     if (low <= high && arr[low].getFunding() >= minFunding) {
       return Optional.of(low);
     } else {
