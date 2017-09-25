@@ -68,19 +68,19 @@ public class Search {
     // Keep going as long as there is more than one item to be checked
     // Eliminate the wrong half of the array
     // Return current item only if it meets the condition!
-    while(low <= high) {
+    while(low < high) {
       final int mid = (high + low) / 2;
       if(arr[mid].getFunding() == minFunding) {
         return Optional.of(mid);
       }
       else if(arr[mid].getFunding() > minFunding) {
-        high = mid - 1;
+        high = mid;
       }
       else {
-        low = mid;
+        low = mid + 1;
       }
     }
-    if (low <= high && arr[low].getFunding() >= minFunding) {
+    if (low >= high && arr[low].getFunding() >= minFunding) {
       return Optional.of(low);
     } else {
       return Optional.empty();
