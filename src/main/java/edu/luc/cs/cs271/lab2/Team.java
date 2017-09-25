@@ -47,4 +47,10 @@ public class Team {
   public int getFunding() {
     return this.funding;
   }
+  
+  public void printTeamInfo() {
+    System.out.println("Name: " + getName());
+    System.out.println("Head coach: " + getHeadcoach());
+    System.out.println("Funding: " + getFunding());
+  }
 }
